@@ -8,7 +8,8 @@ services:
       driver: json-file
       options:
         max-size: "10m"
-        max-file: "3"
+        max-file: "5"
+        compress: "true"
     ports:
       - "${HOST_PORT:?HOST_PORT must be set}:8080"
     environment:
