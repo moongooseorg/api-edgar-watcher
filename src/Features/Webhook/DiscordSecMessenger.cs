@@ -1,12 +1,12 @@
 using System.Reactive.Linq;
 using System.Text;
 using System.Text.Json;
-using EdgarWatcher.Configuration;
-using EdgarWatcher.Features.SecApi;
-using EdgarWatcher.Models;
+using ApiEdgarWatcher.Configuration;
+using ApiEdgarWatcher.Features.SecApi;
+using ApiEdgarWatcher.Models;
 using Microsoft.Extensions.Options;
 
-namespace EdgarWatcher.Features.Webhook;
+namespace ApiEdgarWatcher.Features.Webhook;
 
 public class DiscordSecMessenger
 {

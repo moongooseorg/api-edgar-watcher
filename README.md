@@ -1,1 +1,1 @@
-# edgar-watcher
+# api-edgar-watcher

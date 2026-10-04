@@ -1,10 +1,10 @@
 using System.Reactive.Linq;
 using System.Text.Json;
-using EdgarWatcher.Configuration;
-using EdgarWatcher.Models;
+using ApiEdgarWatcher.Configuration;
+using ApiEdgarWatcher.Models;
 using Microsoft.Extensions.Options;
 
-namespace EdgarWatcher.Features.SecApi;
+namespace ApiEdgarWatcher.Features.SecApi;
 
 public class SecApiService
 {
@@ -79,7 +79,7 @@ public class SecApiService
 
     private async Task ReleaseAfterDelay()
     {
-        await Task.Delay(_settings.ServiceCallsResetInMilliseconds);
+        await Task.Delay(TimeSpan.FromSeconds(_settings.ServiceCallThrottleResetSeconds));
         _rateLimiter.Release();
     }
 

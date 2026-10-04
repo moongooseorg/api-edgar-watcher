@@ -45,6 +45,9 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.ghcr }}:latest
+          secrets: |
+            github_user=${{ github.actor }}
+            github_token=${{ secrets.GITHUB_TOKEN }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 

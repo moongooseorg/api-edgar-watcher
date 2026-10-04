@@ -1,14 +1,15 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /source
+COPY nuget.config ./
 COPY src/*.csproj src/
-COPY lib/OpenBaoConfiguration/*.csproj lib/OpenBaoConfiguration/
-RUN dotnet restore src/edgar-watcher.csproj
+RUN --mount=type=secret,id=github_user,env=GITHUB_USER \
+    --mount=type=secret,id=github_token,env=GITHUB_TOKEN \
+    dotnet restore src/api-edgar-watcher.csproj
 COPY src/ src/
-COPY lib/ lib/
-RUN dotnet publish src/edgar-watcher.csproj -c Release -o /app
+RUN dotnet publish src/api-edgar-watcher.csproj -c Release -o /app --no-restore
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled
 WORKDIR /app
 COPY --from=build /app ./
 EXPOSE 8080
-ENTRYPOINT ["dotnet", "edgar-watcher.dll"]
+ENTRYPOINT ["dotnet", "api-edgar-watcher.dll"]

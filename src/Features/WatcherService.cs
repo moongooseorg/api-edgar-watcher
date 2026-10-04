@@ -1,11 +1,11 @@
 using System.Reactive.Linq;
-using EdgarWatcher.Configuration;
-using EdgarWatcher.Features.Datastore;
-using EdgarWatcher.Features.SecApi;
-using EdgarWatcher.Features.Webhook;
+using ApiEdgarWatcher.Configuration;
+using ApiEdgarWatcher.Features.Datastore;
+using ApiEdgarWatcher.Features.SecApi;
+using ApiEdgarWatcher.Features.Webhook;
 using Microsoft.Extensions.Options;
 
-namespace EdgarWatcher.Features;
+namespace ApiEdgarWatcher.Features;
 
 public class WatcherService : BackgroundService
 {
@@ -41,11 +41,11 @@ public class WatcherService : BackgroundService
 
         _logger.LogInformation("Watching tickers: {Tickers}", string.Join(", ", _settings.Tickers));
         _logger.LogInformation(
-            "Edgar Watcher started - polling {Count} tickers every {Interval}ms",
+            "Edgar Watcher started - polling {Count} tickers every {Interval}s",
             _tickerStores.Count,
-            _settings.IntervalInMilliseconds);
+            _settings.RunEveryXSeconds);
 
-        using PeriodicTimer timer = new PeriodicTimer(TimeSpan.FromMilliseconds(_settings.IntervalInMilliseconds));
+        using PeriodicTimer timer = new PeriodicTimer(TimeSpan.FromSeconds(_settings.RunEveryXSeconds));
         while (await timer.WaitForNextTickAsync(stoppingToken))
         {
             foreach (TickerStore store in _tickerStores)

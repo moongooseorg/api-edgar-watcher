@@ -1,6 +1,6 @@
-using EdgarWatcher.Models;
+using ApiEdgarWatcher.Models;
 
-namespace EdgarWatcher.Features.SecApi;
+namespace ApiEdgarWatcher.Features.SecApi;
 
 public static class ApiHelper
 {

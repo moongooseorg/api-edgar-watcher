@@ -5,8 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <RootNamespace>EdgarWatcher</RootNamespace>
-    <AssemblyName>edgar-watcher</AssemblyName>
+    <RootNamespace>ApiEdgarWatcher</RootNamespace>
+    <AssemblyName>api-edgar-watcher</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../lib/OpenBaoConfiguration/OpenBaoConfiguration.csproj" />
+    <PackageReference Include="OpenBaoHelper" Version="0.0.1" />
   </ItemGroup>
 
 </Project>

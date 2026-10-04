@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace EdgarWatcher.Models;
+namespace ApiEdgarWatcher.Models;
 
 public class RecentFiling
 {

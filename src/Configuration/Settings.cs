@@ -1,19 +1,19 @@
-using OpenBaoConfiguration;
+using OpenBaoHelper;
 
-namespace EdgarWatcher.Configuration;
+namespace ApiEdgarWatcher.Configuration;
 
-[ConfigurationSection("EdgarWatcher")]
+[OpenBaoSection("EdgarWatcher")]
 public class EdgarWatcherSettings
 {
-    public int IntervalInMilliseconds { get; set; }
+    public int RunEveryXSeconds { get; set; }
     public int MaxServiceCallsInARow { get; set; }
-    public int ServiceCallsResetInMilliseconds { get; set; }
+    public int ServiceCallThrottleResetSeconds { get; set; }
     public string ServiceName { get; set; } = "";
     public string UserAgent { get; set; } = "";
     public string[] Tickers { get; set; } = [];
 }
 
-[ConfigurationSection("Notification")]
+[OpenBaoSection("Notification")]
 public class NotificationSettings
 {
     public string HealthCheckWebhook { get; set; } = "";

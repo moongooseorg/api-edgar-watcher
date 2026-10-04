@@ -1,8 +1,8 @@
-using EdgarWatcher.Configuration;
-using EdgarWatcher.Features;
-using EdgarWatcher.Features.SecApi;
-using EdgarWatcher.Features.Webhook;
-using OpenBaoConfiguration;
+using ApiEdgarWatcher.Configuration;
+using ApiEdgarWatcher.Features;
+using ApiEdgarWatcher.Features.SecApi;
+using ApiEdgarWatcher.Features.Webhook;
+using OpenBaoHelper;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

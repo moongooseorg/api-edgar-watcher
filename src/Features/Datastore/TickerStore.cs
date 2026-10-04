@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace EdgarWatcher.Features.Datastore;
+namespace ApiEdgarWatcher.Features.Datastore;
 
 public class TickerStore
 {
